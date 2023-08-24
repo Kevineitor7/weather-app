@@ -32,36 +32,161 @@
     }
 
     .time {
-        font-size: 1.4rem;
-        height: 70px;
+        font-size: 1.3rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        word-spacing: 0.7rem;
+        margin-top: 20px;
     }
 
     .city {
         text-align: center;
         font-size: 2rem;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .country {
         text-align: center;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         margin-top: 8px;
+    }
+
+    .degrees {
+        margin-top: 40px;
+        align-self: center;
+        display: flex;
+        gap: 40px;
+    }
+
+    .degrees button {
+        padding: 8px;
+        border-radius: 14px;
+        font-size: 1.2rem;
+        width: 40px;
+        height: 40px;
+        background: black;
+        color: white;
+        border: none;
+        box-shadow: 1px 3px 10px 1px rgb(54, 49, 49); 
+    }
+
+    .degrees button.active {
+        background: green;
+        box-shadow: 1px 3px 12px 1px rgb(3, 85, 3);
+    }
+
+    .degrees button:active {
+        transform: scale(0.9);
     }
 
     .weather {
         font-size: 4.2rem;
-        padding-left: 20px;
-        margin-top: 70px;
+        padding-left: 16px;
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .feels {
+        font-size: 1.2rem;
+        padding-right: 12px;
+        align-self: flex-end;
     }
 
     .condition {
-        padding-left: 20px;
-        font-size: 2.2rem;
+        padding-left: 16px;
+        font-size: 2rem;
         margin-top: 4px;
+    }
+
+    .hours-tab {
+        background: rgba(0, 0, 0, 0.8);
+        margin: 40px 10px;
+        border-radius: 8px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .hours-tab p {
+        padding: 4px 20px 6px 20px;
+        font-size: 1.2rem;
+    }
+
+    .hours {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-rows: 1fr;
+        grid-auto-flow: column;
+        overflow-x: scroll;
+    }
+
+    .hours-info {
+        border-right: 1px solid rgba(255, 255, 255, 0.493);
+        padding: 4px;
+        width: 100px;
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 0.9rem;
+    }
+
+    .hours-info:hover {
+        background: rgba(119, 117, 117, 0.493);
+    }
+
+    .hour {
+        align-self: center;
+    }
+
+    .hour-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+    }
+
+    .hour-icon img {
+        width: 40%;
+    }
+
+    .hour-temp {
+        align-self: center;
+    }
+
+    .hour-humidity {
+        align-self: center;
+        font-size: 0.85rem;
+    }
+
+    .hour-rain-snow {
+        display: flex;
+        justify-content: space-around;
+        gap: 4px;
+    }
+
+    .hour-rain, .hour-snow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        width: 50%;
+    }
+
+    .hour-rain-icon img {
+        width: 25px;
+        height: 20px;
+    }
+
+    .hour-snow-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .hour-snow-chance, .hour-rain-chance {
+        height: 100%;
     }
 }
 
