@@ -6,13 +6,18 @@
     <title>Weather</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Nabataean&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <video src="https://player.vimeo.com/external/345805150.sd.mp4?s=ac036f2cd61e3e65a2d40504beffb9601e204ccf&profile_id=164&oauth2_token_id=57447761" muted loop autoplay></video>
+        <video class='background-video' src="https://player.vimeo.com/external/345805150.sd.mp4?s=ac036f2cd61e3e65a2d40504beffb9601e204ccf&profile_id=164&oauth2_token_id=57447761" muted loop autoplay></video>
         <div class="time"></div>
         <div class="city"></div>
         <div class="country"></div>
+        <div class="city-search">
+            <input type="text" id="search" placeholder="Enter a city">
+            <button class="btn-search">Search</button>
+        </div>
         <div class="degrees">
             <button class="celsius active">&degC</button>
             <button class="fahrenheit">&degF</button>
@@ -72,40 +77,65 @@
         </div>
          <div class="facts">
             <div class="fact">
-                <div>Sunrise</div>
+                <div class="fact-description">Sunrise</div>
                 <div class="sunrise"></div>
             </div>
-            <div class=" fact">
-                <div>Sunset</div>
+            <div class="fact">
+                <div class="fact-description">Sunset</div>
                 <div class="sunset"></div>
             </div>
             <div class="fact">
-                <div>Wind Speed</div>
+                <div class="fact-description">Wind Speed</div>
                 <div class="wind-speed"></div>
             </div>
             <div class="fact">
-                <div>Wind Direction</div>
+                <div class="fact-description">Wind Direction</div>
                 <div class="wind-direction"></div>
             </div>
             <div class="fact">
-                <div>Precipitation</div>
+                <div class="fact-description">Precipitation</div>
                 <div class="precip"></div>
             </div>
             <div class="fact">
-                <div>UV Index</div>
+                <div class="fact-description">Visibility</div>
+                <div class="visib"></div>
+            </div>
+            <div class="fact">
+                <div class="fact-description">UV Index</div>
                 <div class="uv"></div>
             </div>
             <div class="fact">
-                <div>Moon Phase</div>
+                <div class="fact-description">Moon Phase</div>
                 <div class="moon-phase"></div>
             </div>
             <div class="fact">
-                <div>Hottest Hour</div>
+                <div class="fact-description">Hottest Hour</div>
                 <div class="hottest-hour"></div>
             </div>
             <div class="fact">
-                <div>Coldest Hour</div>
+                <div class="fact-description">Coldest Hour</div>
                 <div class="coldest-hour"></div>
+            </div>
+        </div>
+        <div class="activities">
+            <p>Activities conditions</p>
+            <div class="activity-grid">
+                <div class="activity">
+                    <div class="activity-conditions running"></div>
+                    <div class="activity-name">Running</div>
+                </div>
+                <div class="activity">
+                    <div class="activity-conditions fishing"></div>
+                    <div class="activity-name">Fishing</div>
+                </div>
+                <div class="activity">
+                    <div class="activity-conditions biking"></div>
+                    <div class="activity-name">Biking</div>
+                </div>
+                <div class="activity">
+                    <div class="activity-conditions beach"></div>
+                    <div class="activity-name">Beach/Pool</div>
+                </div>
             </div>
         </div> 
     </div>
