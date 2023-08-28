@@ -326,7 +326,7 @@
         display: grid;
         justify-content: space-around;
         grid-template-columns: repeat(2, 120px);
-        gap: 30px;
+        gap: 20px;
     }
 
     .activity {
@@ -342,8 +342,12 @@
     .activity-conditions {
         border-radius: 100%;
         padding: 20px;
-        display: inline;
-        font-size: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        width: 110px;
+        height: 110px;
     }
 
     .activity-name {
