@@ -44,7 +44,7 @@
 
     .city {
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.9rem;
         margin-top: 15px;
     }
 
@@ -68,7 +68,8 @@
         z-index: 20;
         display: flex;
         width: 60%;
-        padding: 8px 4px;
+        padding: 8px 6px;
+        border-radius: 10px;
         font-size: 0.9rem;
         background: black;
         color: white;
@@ -93,7 +94,6 @@
         align-items: center;
         color: black;
         border: none;
-        box-shadow: 1px 3px 10px 1px rgb(138, 127, 127);
     }
 
     .degrees {
@@ -151,12 +151,11 @@
     }
 
     .hours-tab, .forecast, .facts, .activities {
-        background: rgba(0, 0, 0, 0.8);
         margin: 40px 10px;
         border-radius: 8px;
         height: auto;
         padding: 10px;
-        box-shadow: 1px 3px 10px 1px rgb(54, 49, 49); 
+        box-shadow: 1px 3px 10px 1px rgb(54, 49, 49);
         overflow-x: scroll;
     }
 
