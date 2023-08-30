@@ -40,31 +40,35 @@ function success(position) {
     const crd = position.coords;
     const latitude = crd.latitude
     const longitude = crd.longitude
-  
-    console.log(`Latitude : ${latitude}`);
-    console.log(`Longitude: ${longitude}`);
-
     fetching(latitude,longitude)
 }
   
-  function error(err) {
+function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
 }
   
-  navigator.geolocation.getCurrentPosition(success, error);
+navigator.geolocation.getCurrentPosition(success, error);
 
-  searchCityButton.addEventListener('click', () => {
+searchCityButton.addEventListener('click', () => {
     unit = 'c'
-    inputFetching(searchInput.value)
+
+    if (searchInput.value == '') {
+        hours.innerHTML = ''
+        forecastDays.innerHTML = ''
+        navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+        inputFetching(searchInput.value)
+    }
+
     if (fahrenheitButton.classList.contains('active')) {
             fahrenheitButton.classList.remove('active')
             celsiusButton.classList.add('active')
     } else if (celsiusButton.classList.contains('active')) {
         return
     }
-  })
+})
 
-  async function inputFetching(value) {
+async function inputFetching(value) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=480bafb0e7094033b4b155606231408&q=${value}&days=3`, {mode: 'cors'})
         const inputData = await response.json()
@@ -74,11 +78,11 @@ function success(position) {
         doIt(inputData)
     }
     catch(err) {
-            console.log(err)
+        console.log(err)
     }
   }
 
-  async function fetching(lat,lon) {
+async function fetching(lat,lon) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=480bafb0e7094033b4b155606231408&q=${lat},${lon}&days=3`, {mode: 'cors'})
         const data = await response.json()
@@ -146,6 +150,32 @@ function doIt(data) {
     visibility.innerHTML = data.current.vis_km + ' km / ' + data.current.vis_miles + ' mi'
     uvIndex.innerHTML = data.current.uv
     moonPhase.innerHTML = data.forecast.forecastday[0].astro.moon_phase
+    switch(moonPhase.innerHTML) {
+        case 'Full Moon':
+            moonPhase.innerHTML += ' 🌕';
+            break;
+        case 'New Moon':
+            moonPhase.innerHTML += ' 🌑';
+            break;
+        case 'Waxing Crescent':
+            moonPhase.innerHTML += ' 🌒';
+            break;
+        case 'Waning Crescent':
+            moonPhase.innerHTML += ' 🌘';
+            break;
+        case 'Waxing Gibbous':
+            moonPhase.innerHTML += ' 🌔';
+            break;
+        case 'Waning Gibbous':
+            moonPhase.innerHTML += ' 🌖';
+            break;
+        case 'First Quarter':
+            moonPhase.innerHTML += ' 🌓';
+            break;
+        case 'Last Quarter':
+            moonPhase.innerHTML += ' 🌗';
+            break;
+    }
     let highest = 0
     let lowest = 150
     let hottestTime
@@ -407,58 +437,35 @@ function doIt(data) {
         forecast.style = 'background: rgba(0, 0, 0, 0.8);'
         facts.style = 'background: rgba(0, 0, 0, 0.8);'
         activities.style = 'background: rgba(0, 0, 0, 0.8);'
-        if (data.current.condition.code == 1000 ||
-            data.current.condition.code == 1003) {
+        if (data.current.condition.code == 1000 || data.current.condition.code == 1003) {
         /* SUNNY */     backgroundVideo.src = 'https://player.vimeo.com/external/345805150.sd.mp4?s=ac036f2cd61e3e65a2d40504beffb9601e204ccf&profile_id=164&oauth2_token_id=57447761'
-        } else if (data.current.condition.code == 1006 ||
-                   data.current.condition.code == 1009) {
+        } else if (data.current.condition.code == 1006 || data.current.condition.code == 1009) {
         /* CLOUDY */    backgroundVideo.src = 'https://player.vimeo.com/external/455165700.sd.mp4?s=186476b109a6c5f8b851a0a53ff766e75cb7405d&profile_id=164&oauth2_token_id=57447761'
-        } else if (data.current.condition.code == 1030 ||
-                   data.current.condition.code == 1135) {
+        } else if (data.current.condition.code == 1030 || data.current.condition.code == 1135) {
         /* FOG */       backgroundVideo.src = 'https://player.vimeo.com/external/386752775.sd.mp4?s=577a830fa1be2a3bdf582ab5b40effb7cba59ce7&profile_id=164&oauth2_token_id=57447761'
-        } else if (data.current.condition.code == 1063 ||
-                   data.current.condition.code == 1150 ||
-                   data.current.condition.code == 1153 ||
-                   data.current.condition.code == 1180 ||
-                   data.current.condition.code == 1183 ||
-                   data.current.condition.code == 1186 ||
-                   data.current.condition.code == 1189 ||
-                   data.current.condition.code == 1192 ||
-                   data.current.condition.code == 1195 ||
-                   data.current.condition.code == 1198 ||
-                   data.current.condition.code == 1201 ||
-                   data.current.condition.code == 1240 ||
-                   data.current.condition.code == 1243 ||
-                   data.current.condition.code == 1246) {
+        } else if (data.current.condition.code == 1063 || data.current.condition.code == 1150 ||
+                   data.current.condition.code == 1153 || data.current.condition.code == 1180 ||
+                   data.current.condition.code == 1183 || data.current.condition.code == 1186 ||
+                   data.current.condition.code == 1189 || data.current.condition.code == 1192 ||
+                   data.current.condition.code == 1195 || data.current.condition.code == 1198 ||
+                   data.current.condition.code == 1201 || data.current.condition.code == 1240 ||
+                   data.current.condition.code == 1243 || data.current.condition.code == 1246) {
         /* RAIN */      backgroundVideo.src = 'https://player.vimeo.com/external/342387372.sd.mp4?s=44bfce58e927033b3ecbc122461adb44b3793352&profile_id=164&oauth2_token_id=57447761'
-        } else if (data.current.condition.code == 1087 ||
-                   data.current.condition.code == 1273 ||
-                   data.current.condition.code == 1276 ||
-                   data.current.condition.code == 1279 ||
+        } else if (data.current.condition.code == 1087 || data.current.condition.code == 1273 ||
+                   data.current.condition.code == 1276 || data.current.condition.code == 1279 ||
                    data.current.condition.code == 1282) {
         /* THUNDER */   backgroundVideo.src = 'https://player.vimeo.com/external/387901246.sd.mp4?s=bea799c772a84e963c0f3d8129b3dfccbe800381&profile_id=164&oauth2_token_id=57447761'
-        } else if (data.current.condition.code == 1066 ||
-                   data.current.condition.code == 1069 ||
-                   data.current.condition.code == 1072 ||
-                   data.current.condition.code == 1114 ||
-                   data.current.condition.code == 1117 ||
-                   data.current.condition.code == 1147 ||
-                   data.current.condition.code == 1168 ||
-                   data.current.condition.code == 1171 ||
-                   data.current.condition.code == 1204 ||
-                   data.current.condition.code == 1207 ||
-                   data.current.condition.code == 1210 ||
-                   data.current.condition.code == 1213 ||
-                   data.current.condition.code == 1216 ||
-                   data.current.condition.code == 1219 ||
-                   data.current.condition.code == 1222 ||
-                   data.current.condition.code == 1225 ||
-                   data.current.condition.code == 1237 ||
-                   data.current.condition.code == 1249 ||
-                   data.current.condition.code == 1252 ||
-                   data.current.condition.code == 1255 ||
-                   data.current.condition.code == 1258 ||
-                   data.current.condition.code == 1261 ||
+        } else if (data.current.condition.code == 1066 || data.current.condition.code == 1069 ||
+                   data.current.condition.code == 1072 || data.current.condition.code == 1114 ||
+                   data.current.condition.code == 1117 || data.current.condition.code == 1147 ||
+                   data.current.condition.code == 1168 || data.current.condition.code == 1171 ||
+                   data.current.condition.code == 1204 || data.current.condition.code == 1207 ||
+                   data.current.condition.code == 1210 || data.current.condition.code == 1213 ||
+                   data.current.condition.code == 1216 || data.current.condition.code == 1219 ||
+                   data.current.condition.code == 1222 || data.current.condition.code == 1225 ||
+                   data.current.condition.code == 1237 || data.current.condition.code == 1249 ||
+                   data.current.condition.code == 1252 || data.current.condition.code == 1255 ||
+                   data.current.condition.code == 1258 || data.current.condition.code == 1261 ||
                    data.current.condition.code == 1264) {
         /* SNOW */      backgroundVideo.src = 'https://player.vimeo.com/external/196136356.sd.mp4?s=917eff382e054fc882019d03ff1fa54ec074ecb8&profile_id=164&oauth2_token_id=57447761'
         }
@@ -468,49 +475,29 @@ function doIt(data) {
         forecast.style = 'background: rgba(60, 60, 60, 0.8);'
         facts.style = 'background: rgba(60, 60, 60, 0.8);'
         activities.style = 'background: rgba(60, 60, 60, 0.8);'
-        if (data.current.condition.code == 1063 ||
-            data.current.condition.code == 1150 ||
-            data.current.condition.code == 1153 ||
-            data.current.condition.code == 1180 ||
-            data.current.condition.code == 1183 ||
-            data.current.condition.code == 1186 ||
-            data.current.condition.code == 1189 ||
-            data.current.condition.code == 1192 ||
-            data.current.condition.code == 1195 ||
-            data.current.condition.code == 1198 ||
-            data.current.condition.code == 1201 ||
-            data.current.condition.code == 1240 ||
-            data.current.condition.code == 1243 ||
-            data.current.condition.code == 1246) {
+        if (data.current.condition.code == 1063 || data.current.condition.code == 1150 ||
+            data.current.condition.code == 1153 || data.current.condition.code == 1180 ||
+            data.current.condition.code == 1183 || data.current.condition.code == 1186 ||
+            data.current.condition.code == 1189 || data.current.condition.code == 1192 ||
+            data.current.condition.code == 1195 || data.current.condition.code == 1198 ||
+            data.current.condition.code == 1201 || data.current.condition.code == 1240 ||
+            data.current.condition.code == 1243 || data.current.condition.code == 1246) {
         /* NIGHT RAIN */    backgroundVideo.src = 'https://player.vimeo.com/external/649296999.sd.mp4?s=c7a82b6bb1e8f3efaa78543e882d2c60069ba15a&profile_id=165&oauth_token_id=57447761'
-        } else if (data.current.condition.code == 1066 ||
-                   data.current.condition.code == 1069 ||
-                   data.current.condition.code == 1072 ||
-                   data.current.condition.code == 1114 ||
-                   data.current.condition.code == 1117 ||
-                   data.current.condition.code == 1147 ||
-                   data.current.condition.code == 1168 ||
-                   data.current.condition.code == 1171 ||
-                   data.current.condition.code == 1204 ||
-                   data.current.condition.code == 1207 ||
-                   data.current.condition.code == 1210 ||
-                   data.current.condition.code == 1213 ||
-                   data.current.condition.code == 1216 ||
-                   data.current.condition.code == 1219 ||
-                   data.current.condition.code == 1222 ||
-                   data.current.condition.code == 1225 ||
-                   data.current.condition.code == 1237 ||
-                   data.current.condition.code == 1249 ||
-                   data.current.condition.code == 1252 ||
-                   data.current.condition.code == 1255 ||
-                   data.current.condition.code == 1258 ||
-                   data.current.condition.code == 1261 ||
+        } else if (data.current.condition.code == 1066 || data.current.condition.code == 1069 ||
+                   data.current.condition.code == 1072 || data.current.condition.code == 1114 ||
+                   data.current.condition.code == 1117 || data.current.condition.code == 1147 ||
+                   data.current.condition.code == 1168 || data.current.condition.code == 1171 ||
+                   data.current.condition.code == 1204 || data.current.condition.code == 1207 ||
+                   data.current.condition.code == 1210 || data.current.condition.code == 1213 ||
+                   data.current.condition.code == 1216 || data.current.condition.code == 1219 ||
+                   data.current.condition.code == 1222 || data.current.condition.code == 1225 ||
+                   data.current.condition.code == 1237 || data.current.condition.code == 1249 ||
+                   data.current.condition.code == 1252 || data.current.condition.code == 1255 ||
+                   data.current.condition.code == 1258 || data.current.condition.code == 1261 ||
                    data.current.condition.code == 1264) {
         /* NIGHT SNOW */    backgroundVideo.src = 'https://player.vimeo.com/external/501534645.sd.mp4?s=d3e425a363a0f5ccc8573f75d1db47367a347e13&profile_id=164&oauth2_token_id=57447761'     
-        } else if (data.current.condition.code == 1087 ||
-                   data.current.condition.code == 1273 ||
-                   data.current.condition.code == 1276 ||
-                   data.current.condition.code == 1279 ||
+        } else if (data.current.condition.code == 1087 || data.current.condition.code == 1273 ||
+                   data.current.condition.code == 1276 || data.current.condition.code == 1279 ||
                    data.current.condition.code == 1282) {
         /* NIGHTTHUNDER */  backgroundVideo.src = 'https://player.vimeo.com/external/448411701.sd.mp4?s=1639baf0e7a055cf8b578f889d5c8fd315cf4c74&profile_id=164&oauth2_token_id=57447761'    
         } else {
@@ -529,8 +516,6 @@ function doIt(data) {
             forecastDays.innerHTML = ''
             inputFetching(city.innerHTML)
             console.log(unit)
-            //fillHours(data, 'f')
-            //fillDays(data, 'f')
         }
     })
 
@@ -545,8 +530,6 @@ function doIt(data) {
             forecastDays.innerHTML = ''
             inputFetching(city.innerHTML)
             console.log(unit)
-            //fillHours(data, 'c')
-            //fillDays(data, 'c')
         }
     })
 }
