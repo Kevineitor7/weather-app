@@ -315,13 +315,19 @@ function doIt(data) {
         beachPoolScore -= 1
     }
 
+    // --- running at night --- //
+    if (data.current.is_day == 0) {
+        runningScore += 1
+    }
+
     if (data.current.condition.text.includes('snow') ||
         data.current.condition.text.includes('rain') ||
         data.current.condition.text.includes('Blizzard') ||
         data.current.condition.text.includes('ice') ||
         data.current.condition.text.includes('Ice') ||
         data.current.condition.text.includes('thunder') ||
-        data.current.condition.text.includes('thundery')) {
+        data.current.condition.text.includes('thundery') ||
+        data.current.condition.text.includes('Thundery')) {
             runningScore = 0
             fishingScore = 0
             bikingScore = 0
@@ -424,7 +430,7 @@ function doIt(data) {
                    data.current.condition.code == 1240 ||
                    data.current.condition.code == 1243 ||
                    data.current.condition.code == 1246) {
-        /* RAIN */      backgroundVideo.src = 'https://player.vimeo.com/external/218409805.sd.mp4?s=5e3e166133d4e0e9f0ee1cca64e97a936b6c61b9&profile_id=164&oauth2_token_id=57447761'
+        /* RAIN */      backgroundVideo.src = 'https://player.vimeo.com/external/342387372.sd.mp4?s=44bfce58e927033b3ecbc122461adb44b3793352&profile_id=164&oauth2_token_id=57447761'
         } else if (data.current.condition.code == 1087 ||
                    data.current.condition.code == 1273 ||
                    data.current.condition.code == 1276 ||
@@ -476,7 +482,7 @@ function doIt(data) {
             data.current.condition.code == 1240 ||
             data.current.condition.code == 1243 ||
             data.current.condition.code == 1246) {
-        /* NIGHT RAIN */    backgroundVideo.src = 'https://player.vimeo.com/external/226685088.sd.mp4?s=bc60c4f177691974edc76b96774a116708b639e7&profile_id=164&oauth2_token_id=57447761'
+        /* NIGHT RAIN */    backgroundVideo.src = 'https://player.vimeo.com/external/649296999.sd.mp4?s=c7a82b6bb1e8f3efaa78543e882d2c60069ba15a&profile_id=165&oauth_token_id=57447761'
         } else if (data.current.condition.code == 1066 ||
                    data.current.condition.code == 1069 ||
                    data.current.condition.code == 1072 ||
