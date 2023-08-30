@@ -176,7 +176,7 @@
     }
 
     .hours::-webkit-scrollbar, .days::-webkit-scrollbar {
-        height: 12px;
+        height: 4px;
     }
 
     .hours::-webkit-scrollbar-thumb, .days::-webkit-scrollbar-thumb {
@@ -549,6 +549,10 @@
 
     .feels-humidity {
         font-size: 1.5rem;
+    }
+
+    .hours::-webkit-scrollbar, .days::-webkit-scrollbar {
+        height: 12px;
     }
 
     .forecast {
