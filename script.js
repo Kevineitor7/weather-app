@@ -45,6 +45,13 @@ function success(position) {
   
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
+    time.innerHTML = 'Enter a location'
+    celsiusButton.style = 'visibility: hidden'
+    fahrenheitButton.style = 'visibility: hidden'
+    hoursTab.style = 'visibility: hidden'
+    forecast.style = 'visibility: hidden'
+    facts.style = 'visibility: hidden'
+    activities.style = 'visibility: hidden'
 }
   
 navigator.geolocation.getCurrentPosition(success, error);
@@ -58,6 +65,7 @@ searchCityButton.addEventListener('click', () => {
         navigator.geolocation.getCurrentPosition(success, error);
     } else {
         inputFetching(searchInput.value)
+        
     }
 
     if (fahrenheitButton.classList.contains('active')) {
@@ -75,6 +83,7 @@ async function inputFetching(value) {
         console.log(inputData)
         hours.innerHTML = ''
         forecastDays.innerHTML = ''
+        
         doIt(inputData)
     }
     catch(err) {
@@ -95,6 +104,8 @@ async function fetching(lat,lon) {
 }
 
 function doIt(data) {
+    celsiusButton.style = 'visibility: visible'
+    fahrenheitButton.style = 'visibility: visible'
     time.innerHTML = data.location.localtime
     city.innerHTML = data.location.name + ', ' + data.location.region
     country.innerHTML = data.location.country
