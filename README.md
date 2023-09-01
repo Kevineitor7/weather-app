@@ -7,7 +7,7 @@ User can either allow the app to access current location and display weather dat
 
 Displays the conditions of certain outdoor activities such as running, fishing, biking. More activities will be added.
 
-Each activity depending on the weather is categorized in 5 different levels with the following order:
+Each activity depending on the weather is arranged in 5 different categories with the following order:
 1. Ideal
 2. Great
 3. Good
