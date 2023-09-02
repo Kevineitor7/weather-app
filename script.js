@@ -636,3 +636,8 @@ function fillDays(data, type) {
         })
     }
 }
+
+// -- updates page every 2 minutes -- //
+setTimeout(() => {
+    document.location.reload();
+  }, 120000);
