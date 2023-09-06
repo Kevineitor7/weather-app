@@ -294,10 +294,10 @@ function doIt(data) {
 
     // --- wind for running, fishing, biking and beach/pool --- // 
     if (Math.trunc(data.current.wind_mph) <= 10) {
-        runningScore += 3
+        runningScore += 2
         fishingScore += 3
         bikingScore += 3
-        beachPoolScore += 3
+        beachPoolScore += 2
     } else if (Math.trunc(data.current.wind_mph) >= 11 && Math.trunc(data.current.wind_mph) <= 15) {
         runningScore += 2
         fishingScore += 2
