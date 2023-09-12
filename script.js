@@ -287,7 +287,7 @@ function doIt(data) {
         bikingScore += 1
         beachPoolScore += 1
     } else {
-        runningScore -= 2
+        runningScore -= 1
         bikingScore -= 1
         beachPoolScore -= 1
     }
