@@ -449,11 +449,11 @@ function doIt(data) {
         facts.style = 'background: rgba(0, 0, 0, 0.8);'
         activities.style = 'background: rgba(0, 0, 0, 0.8);'
         if (data.current.condition.code == 1000 || data.current.condition.code == 1003) {
-        /* SUNNY */     backgroundVideo.src = 'https://player.vimeo.com/external/345805150.sd.mp4?s=ac036f2cd61e3e65a2d40504beffb9601e204ccf&profile_id=164&oauth2_token_id=57447761'
+        /* SUNNY */     backgroundVideo.src = 'https://cdn.pixabay.com/video/2022/05/29/118555-715426774_large.mp4'
         } else if (data.current.condition.code == 1006 || data.current.condition.code == 1009) {
-        /* CLOUDY */    backgroundVideo.src = 'https://player.vimeo.com/external/455165700.sd.mp4?s=186476b109a6c5f8b851a0a53ff766e75cb7405d&profile_id=164&oauth2_token_id=57447761'
+        /* CLOUDY */    backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/02/10/64759-510850877_large.mp4'
         } else if (data.current.condition.code == 1030 || data.current.condition.code == 1135) {
-        /* FOG */       backgroundVideo.src = 'https://player.vimeo.com/external/386752775.sd.mp4?s=577a830fa1be2a3bdf582ab5b40effb7cba59ce7&profile_id=164&oauth2_token_id=57447761'
+        /* FOG */       backgroundVideo.src = 'https://cdn.pixabay.com/video/2022/01/08/103840-664507395_large.mp4'
         } else if (data.current.condition.code == 1063 || data.current.condition.code == 1150 ||
                    data.current.condition.code == 1153 || data.current.condition.code == 1180 ||
                    data.current.condition.code == 1183 || data.current.condition.code == 1186 ||
@@ -461,11 +461,11 @@ function doIt(data) {
                    data.current.condition.code == 1195 || data.current.condition.code == 1198 ||
                    data.current.condition.code == 1201 || data.current.condition.code == 1240 ||
                    data.current.condition.code == 1243 || data.current.condition.code == 1246) {
-        /* RAIN */      backgroundVideo.src = 'https://player.vimeo.com/external/342387372.sd.mp4?s=44bfce58e927033b3ecbc122461adb44b3793352&profile_id=164&oauth2_token_id=57447761'
+        /* RAIN */      backgroundVideo.src = 'https://cdn.pixabay.com/video/2023/02/22/151744-801455851_large.mp4'
         } else if (data.current.condition.code == 1087 || data.current.condition.code == 1273 ||
                    data.current.condition.code == 1276 || data.current.condition.code == 1279 ||
                    data.current.condition.code == 1282) {
-        /* THUNDER */   backgroundVideo.src = 'https://player.vimeo.com/external/387901246.sd.mp4?s=bea799c772a84e963c0f3d8129b3dfccbe800381&profile_id=164&oauth2_token_id=57447761'
+        /* THUNDER */   backgroundVideo.src = 'https://cdn.pixabay.com/video/2024/07/21/222308_large.mp4'
         } else if (data.current.condition.code == 1066 || data.current.condition.code == 1069 ||
                    data.current.condition.code == 1072 || data.current.condition.code == 1114 ||
                    data.current.condition.code == 1117 || data.current.condition.code == 1147 ||
@@ -478,7 +478,7 @@ function doIt(data) {
                    data.current.condition.code == 1252 || data.current.condition.code == 1255 ||
                    data.current.condition.code == 1258 || data.current.condition.code == 1261 ||
                    data.current.condition.code == 1264) {
-        /* SNOW */      backgroundVideo.src = 'https://player.vimeo.com/external/196136356.sd.mp4?s=917eff382e054fc882019d03ff1fa54ec074ecb8&profile_id=164&oauth2_token_id=57447761'
+        /* SNOW */      backgroundVideo.src = 'https://cdn.pixabay.com/video/2023/11/30/191443-890121806_large.mp4'
         }
     } 
     else if (data.current.is_day == 0) {
@@ -493,7 +493,7 @@ function doIt(data) {
             data.current.condition.code == 1195 || data.current.condition.code == 1198 ||
             data.current.condition.code == 1201 || data.current.condition.code == 1240 ||
             data.current.condition.code == 1243 || data.current.condition.code == 1246) {
-        /* NIGHT RAIN */    backgroundVideo.src = 'https://player.vimeo.com/external/649296999.sd.mp4?s=c7a82b6bb1e8f3efaa78543e882d2c60069ba15a&profile_id=165&oauth_token_id=57447761'
+        /* NIGHT RAIN */    backgroundVideo.src = 'https://cdn.pixabay.com/video/2023/03/09/153978-806571981_large.mp4'
         } else if (data.current.condition.code == 1066 || data.current.condition.code == 1069 ||
                    data.current.condition.code == 1072 || data.current.condition.code == 1114 ||
                    data.current.condition.code == 1117 || data.current.condition.code == 1147 ||
@@ -506,13 +506,13 @@ function doIt(data) {
                    data.current.condition.code == 1252 || data.current.condition.code == 1255 ||
                    data.current.condition.code == 1258 || data.current.condition.code == 1261 ||
                    data.current.condition.code == 1264) {
-        /* NIGHT SNOW */    backgroundVideo.src = 'https://player.vimeo.com/external/501534645.sd.mp4?s=d3e425a363a0f5ccc8573f75d1db47367a347e13&profile_id=164&oauth2_token_id=57447761'     
+        /* NIGHT SNOW */    backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/10/01/90453-626004965_large.mp4'     
         } else if (data.current.condition.code == 1087 || data.current.condition.code == 1273 ||
                    data.current.condition.code == 1276 || data.current.condition.code == 1279 ||
                    data.current.condition.code == 1282) {
-        /* NIGHTTHUNDER */  backgroundVideo.src = 'https://player.vimeo.com/external/448411701.sd.mp4?s=1639baf0e7a055cf8b578f889d5c8fd315cf4c74&profile_id=164&oauth2_token_id=57447761'    
+        /* NIGHTTHUNDER */  backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/09/13/88491-606079589_large.mp4'    
         } else {
-        /* NIGHT CLEAR */   backgroundVideo.src = 'https://player.vimeo.com/external/488458593.sd.mp4?s=06d3817860a9fd0e808ce563b68e10810ac9521f&profile_id=165&oauth2_token_id=57447761'
+        /* NIGHT CLEAR */   backgroundVideo.src = 'https://cdn.pixabay.com/video/2022/11/03/137617-767056247_large.mp4'
         }
     }
     
