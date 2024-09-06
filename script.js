@@ -451,9 +451,9 @@ function doIt(data) {
         if (data.current.condition.code == 1000 || data.current.condition.code == 1003) {
         /* SUNNY */     backgroundVideo.src = 'https://cdn.pixabay.com/video/2022/05/29/118555-715426774_tiny.mp4'
         } else if (data.current.condition.code == 1006 || data.current.condition.code == 1009) {
-        /* CLOUDY */    backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/02/10/64759-510850877_large.mp4'
+        /* CLOUDY */    backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/02/10/64759-510850877_tiny.mp4'
         } else if (data.current.condition.code == 1030 || data.current.condition.code == 1135) {
-        /* FOG */       backgroundVideo.src = 'https://cdn.pixabay.com/video/2022/01/08/103840-664507395_large.mp4'
+        /* FOG */       backgroundVideo.src = 'https://cdn.pixabay.com/video/2022/01/08/103840-664507395_tiny.mp4'
         } else if (data.current.condition.code == 1063 || data.current.condition.code == 1150 ||
                    data.current.condition.code == 1153 || data.current.condition.code == 1180 ||
                    data.current.condition.code == 1183 || data.current.condition.code == 1186 ||
@@ -465,7 +465,7 @@ function doIt(data) {
         } else if (data.current.condition.code == 1087 || data.current.condition.code == 1273 ||
                    data.current.condition.code == 1276 || data.current.condition.code == 1279 ||
                    data.current.condition.code == 1282) {
-        /* THUNDER */   backgroundVideo.src = 'https://cdn.pixabay.com/video/2024/07/21/222308_large.mp4'
+        /* THUNDER */   backgroundVideo.src = 'https://cdn.pixabay.com/video/2024/07/21/222308_tiny.mp4'
         } else if (data.current.condition.code == 1066 || data.current.condition.code == 1069 ||
                    data.current.condition.code == 1072 || data.current.condition.code == 1114 ||
                    data.current.condition.code == 1117 || data.current.condition.code == 1147 ||
@@ -478,7 +478,7 @@ function doIt(data) {
                    data.current.condition.code == 1252 || data.current.condition.code == 1255 ||
                    data.current.condition.code == 1258 || data.current.condition.code == 1261 ||
                    data.current.condition.code == 1264) {
-        /* SNOW */      backgroundVideo.src = 'https://cdn.pixabay.com/video/2023/11/30/191443-890121806_large.mp4'
+        /* SNOW */      backgroundVideo.src = 'https://cdn.pixabay.com/video/2023/11/30/191443-890121806_tiny.mp4'
         }
     } 
     else if (data.current.is_day == 0) {
@@ -506,11 +506,11 @@ function doIt(data) {
                    data.current.condition.code == 1252 || data.current.condition.code == 1255 ||
                    data.current.condition.code == 1258 || data.current.condition.code == 1261 ||
                    data.current.condition.code == 1264) {
-        /* NIGHT SNOW */    backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/10/01/90453-626004965_large.mp4'     
+        /* NIGHT SNOW */    backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/10/01/90453-626004965_tiny.mp4'     
         } else if (data.current.condition.code == 1087 || data.current.condition.code == 1273 ||
                    data.current.condition.code == 1276 || data.current.condition.code == 1279 ||
                    data.current.condition.code == 1282) {
-        /* NIGHTTHUNDER */  backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/09/13/88491-606079589_large.mp4'    
+        /* NIGHTTHUNDER */  backgroundVideo.src = 'https://cdn.pixabay.com/video/2021/09/13/88491-606079589_tiny.mp4'    
         } else {
         /* NIGHT CLEAR */   backgroundVideo.src = 'https://cdn.pixabay.com/video/2022/11/03/137617-767056247_tiny.mp4'
         }
